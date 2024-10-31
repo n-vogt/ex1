@@ -18,5 +18,16 @@ function_ex1 <- function(data) {
   summarise(Mean_height = mean(height))
 }
 function_ex1(starwars)
+
+# What is the mean year of birth on each homeworld?
+function_ex2 <- function(data) {
+  data %>% 
+  select(homeworld, birth_year) %>% 
+  na.omit %>% 
+  arrange(birth_year) %>% 
+  group_by(homeworld) %>% 
+  summarise(Mean_YoB = mean(birth_year))
+}
+function_ex2(starwars)
 ```
 
