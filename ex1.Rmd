@@ -20,7 +20,7 @@ function_ex1 <- function(data) {
 function_ex1(starwars)
 
 # What is the mean year of birth on each homeworld?
-function_ex2 <- function(data) {
+function_ex2 <- function(data_new) {
   data %>% 
   select(homeworld, birth_year) %>% 
   na.omit %>% 
