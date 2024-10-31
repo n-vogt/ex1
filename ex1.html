@@ -352,9 +352,6 @@ display: none;
 </div>
 
 
-<div id="second-attempt" class="section level1">
-<h1>SECOND ATTEMPT</h1>
-</div>
 <div id="my472-formative-exercise-1" class="section level1">
 <h1>MY472 Formative: Exercise 1</h1>
 <ol style="list-style-type: decimal">
@@ -362,7 +359,7 @@ display: none;
 and performs some input transformation on it. The function should return
 the transformed dataset.</li>
 </ol>
-<pre class="r"><code>setwd(&quot;~/Documents/MY472 - Data for Data Scientists/my472-formative&quot;)
+<pre class="r"><code>setwd(&quot;~/Documents/MY472 - Data for Data Scientists/ex1&quot;)
 library(tidyverse)</code></pre>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -404,6 +401,30 @@ function_ex1(starwars)</code></pre>
 ## 12 Socorro             177 
 ## 13 Stewjon             182 
 ## 14 Tatooine            179.</code></pre>
+<pre class="r"><code># What is the mean year of birth on each homeworld?
+function_ex2 &lt;- function(data_new) {
+  data_new %&gt;% 
+  select(homeworld, birth_year) %&gt;% 
+  na.omit %&gt;% 
+  arrange(birth_year) %&gt;% 
+  group_by(homeworld) %&gt;% 
+  summarise(Mean_YoB = mean(birth_year))
+}
+function_ex2(starwars)</code></pre>
+<pre><code>## # A tibble: 25 × 2
+##    homeworld    Mean_YoB
+##    &lt;chr&gt;           &lt;dbl&gt;
+##  1 Alderaan           43
+##  2 Bespin             37
+##  3 Cerea              92
+##  4 Chandrila          48
+##  5 Concord Dawn       66
+##  6 Corellia           25
+##  7 Coruscant          91
+##  8 Dathomir           54
+##  9 Dorin              22
+## 10 Endor               8
+## # ℹ 15 more rows</code></pre>
 </div>
 
 
